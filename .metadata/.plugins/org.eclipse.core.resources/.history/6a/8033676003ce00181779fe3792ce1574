@@ -1,0 +1,204 @@
+package com.babbelapps.babbleapps_mobileautomation;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class CapabilitiesPrompt {
+
+	JCheckBox emulatorCheckBox = new JCheckBox("Emulator", true);
+	JCheckBox connectedDeviceCheckBox = new JCheckBox("Connceted Device");
+	JCheckBox useDefaultsCheckBox = new JCheckBox("Use Default Values", true);
+
+	String deviceName = "";
+	String udid = "";
+	String bubndleID = "";
+	String appLocation = "";
+	String teamID = "";
+	String signingID = "";
+
+	String[] platformTypes = { "iOS", "Android" };
+	JComboBox platformTypesCombo = new JComboBox(platformTypes);
+
+	String[] automationNames = { "XCUITest" };
+	JComboBox automationNamesTypeCombo = new JComboBox(automationNames);
+
+	JTextField deviceNameTextField = new JTextField(deviceName);
+	JTextField udidTextField = new JTextField(udid);
+	JTextField bundleIDTextField = new JTextField(bubndleID);
+	JTextField appLocationTextField = new JTextField(appLocation);
+	JTextField teamIDTextField = new JTextField(teamID);
+	JTextField signingIDTextField = new JTextField(signingID);
+
+	public boolean capabilitiesPrompt() {
+
+		boolean carryOutTests = true;
+
+		ActionListener emulatorCheckBoxActionListener = new ActionHandler();
+		ActionListener connectedDeviceCheckBoxActionListener = new ActionHandler();
+		ActionListener useDefaultsCheckBoxActionListener = new ActionHandler();
+
+		emulatorCheckBox.addActionListener(emulatorCheckBoxActionListener);
+		connectedDeviceCheckBox.addActionListener(connectedDeviceCheckBoxActionListener);
+		useDefaultsCheckBox.addActionListener(useDefaultsCheckBoxActionListener);
+
+		automationNamesTypeCombo.setSelectedItem("XCUITest");
+		platformTypesCombo.setSelectedItem("iOS");
+
+		platformTypesCombo.setEnabled(false);
+		automationNamesTypeCombo.setEnabled(false);
+		deviceNameTextField.setEnabled(false);
+		udidTextField.setEnabled(false);
+		bundleIDTextField.setEnabled(false);
+		appLocationTextField.setEnabled(false);
+		teamIDTextField.setEnabled(false);
+		signingIDTextField.setEnabled(false);
+
+		JPanel panel = new JPanel(new GridLayout(0, 2));
+
+		panel.add(new JLabel("Use Emulator"));
+		panel.add(emulatorCheckBox);
+		panel.add(new JLabel("Use Connected Device"));
+		panel.add(connectedDeviceCheckBox);
+		panel.add(new JLabel("Use Default Values"));
+		panel.add(useDefaultsCheckBox);
+
+		panel.add(new JLabel("Platform type"));
+		panel.add(platformTypesCombo);
+		panel.add(new JLabel("Automation Name"));
+		panel.add(automationNamesTypeCombo);
+		panel.add(new JLabel("Device Name"));
+		panel.add(deviceNameTextField);
+		panel.add(new JLabel("UDID:"));
+		panel.add(udidTextField);
+		panel.add(new JLabel("Bundle ID:"));
+		panel.add(bundleIDTextField);
+		panel.add(new JLabel("App Location:"));
+		panel.add(appLocationTextField);
+		panel.add(new JLabel("Team ID:"));
+		panel.add(teamIDTextField);
+		panel.add(new JLabel("Signing ID:"));
+		panel.add(signingIDTextField);
+
+		/*
+		 * capabilities.setCapability("app",
+		 * "/Users/will/Library/Developer/Xcode/DerivedData/my-recipes-crtvqzctkhijyjasxblostthzsjw/Build/Products/Release-iphonesimulator/my-recipes.app"
+		 * ); //Required deviceName = "iPhone SE"; udid =
+		 * "F3B8EAE6-33D7-4850-93C5-7AC240949619"; } else { udid =
+		 * "4958ddfbc1831b6cd046819a90890badf6716777"; deviceName = "Will’s iPhone";
+		 * capabilities.setCapability("bundleId", bundleId);
+		 */
+
+		int result = JOptionPane.showConfirmDialog(null, panel, "Test", JOptionPane.OK_CANCEL_OPTION,
+				JOptionPane.PLAIN_MESSAGE);
+		if (result == JOptionPane.OK_OPTION) {
+			/*
+			 * System.out.println(combo.getSelectedItem() + " " + field1.getText() + " " +
+			 * field2.getText());
+			 */
+		} else {
+			carryOutTests = false;
+			System.out.println("Cancelled");
+		}
+
+		return carryOutTests;
+	}
+
+	class EmulatorCheckBoxActionHandler implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
+			JCheckBox checkbox = (JCheckBox) event.getSource();
+			if (emulatorCheckBox.isSelected()) {
+				if (useDefaultsCheckBox.isSelected()) {
+					platformTypesCombo.setEnabled(false);
+					automationNamesTypeCombo.setEnabled(false);
+					deviceNameTextField.setEnabled(false);
+					udidTextField.setEnabled(false);
+					bundleIDTextField.setEnabled(false);
+					appLocationTextField.setEnabled(false);
+					teamIDTextField.setEnabled(false);
+					signingIDTextField.setEnabled(false);
+				} else {
+					platformTypesCombo.setEnabled(true);
+					automationNamesTypeCombo.setEnabled(true);
+					deviceNameTextField.setEnabled(true);
+					udidTextField.setEnabled(true);
+					bundleIDTextField.setEnabled(true);
+					appLocationTextField.setEnabled(true);
+					teamIDTextField.setEnabled(false);
+					signingIDTextField.setEnabled(false);
+				}
+				connectedDeviceCheckBox.setSelected(false);
+			}
+		}
+	}
+
+	class ConnectedDeviceCheckBoxActionHandler implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
+			JCheckBox checkbox = (JCheckBox) event.getSource();
+			if (connectedDeviceCheckBox.isSelected()) {
+				if (useDefaultsCheckBox.isSelected()) {
+					platformTypesCombo.setEnabled(false);
+					automationNamesTypeCombo.setEnabled(false);
+					deviceNameTextField.setEnabled(false);
+					udidTextField.setEnabled(false);
+					bundleIDTextField.setEnabled(false);
+					appLocationTextField.setEnabled(false);
+					teamIDTextField.setEnabled(false);
+					signingIDTextField.setEnabled(false);
+				} else {
+					platformTypesCombo.setEnabled(true);
+					automationNamesTypeCombo.setEnabled(true);
+					deviceNameTextField.setEnabled(true);
+					udidTextField.setEnabled(true);
+					bundleIDTextField.setEnabled(true);
+					appLocationTextField.setEnabled(false);
+					teamIDTextField.setEnabled(true);
+					signingIDTextField.setEnabled(true);
+				}
+				emulatorCheckBox.setSelected(false);
+			}
+
+		}
+	}
+
+	class UseDefaulesCheckBoxActionHandler implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
+			JCheckBox checkbox = (JCheckBox) event.getSource();
+			if (useDefaultsCheckBox.isSelected()) {
+				platformTypesCombo.setEnabled(false);
+				automationNamesTypeCombo.setEnabled(false);
+				deviceNameTextField.setEnabled(false);
+				udidTextField.setEnabled(false);
+				bundleIDTextField.setEnabled(false);
+				appLocationTextField.setEnabled(false);
+				teamIDTextField.setEnabled(false);
+				signingIDTextField.setEnabled(false);
+			}
+			else {
+				if (emulatorCheckBox.isSelected()) {
+					platformTypesCombo.setEnabled(true);
+					automationNamesTypeCombo.setEnabled(true);
+					deviceNameTextField.setEnabled(true);
+					udidTextField.setEnabled(true);
+					bundleIDTextField.setEnabled(true);
+					appLocationTextField.setEnabled(true);
+					teamIDTextField.setEnabled(false);
+					signingIDTextField.setEnabled(false);
+				}else {
+					platformTypesCombo.setEnabled(true);
+					automationNamesTypeCombo.setEnabled(true);
+					deviceNameTextField.setEnabled(true);
+					udidTextField.setEnabled(true);
+					bundleIDTextField.setEnabled(true);
+					appLocationTextField.setEnabled(false);
+					teamIDTextField.setEnabled(true);
+					signingIDTextField.setEnabled(true);
+				}
+			}
+
+		}
+
+	}
+}

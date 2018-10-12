@@ -1,0 +1,86 @@
+package com.babbelapps.babbleapps_mobileautomation;
+
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.touch.TouchActions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+public class AppiumiOSTest {
+
+	GlobalVariables globalVariables = new GlobalVariables();
+	SetUp setUp = new SetUp();
+	
+    private WebDriver driver;  
+
+    private List<Integer> values; 
+
+    private static final int MINIMUM = 0;  
+    private static final int MAXIMUM = 10;  
+
+    //I need a variable (bool) for real device or simulator
+    
+    @Before  
+    public void setUp() throws Exception {
+    	boolean emulator = true;
+    	String platformName = "iOS";
+    	String deviceName = "Will’s iPhone";
+    	String bundleId = "com.babelapps.my-recipes";
+    	String udid = "";
+    	
+    	DesiredCapabilities capabilities = new DesiredCapabilities();
+    	
+    	if(emulator) {
+            capabilities.setCapability("app", "/Users/will/Library/Developer/Xcode/DerivedData/my-recipes-crtvqzctkhijyjasxblostthzsjw/Build/Products/Release-iphonesimulator/my-recipes.app");
+            deviceName = "iPhone SE";
+            udid = "F3B8EAE6-33D7-4850-93C5-7AC240949619";
+    	}
+    	else {
+    		udid = "4958ddfbc1831b6cd046819a90890badf6716777";
+    		deviceName = "Will’s iPhone";
+    		capabilities.setCapability("bundleId", bundleId);
+    		
+    		//capabilities.setCapability("xcodeOrgId", "<Team ID>");
+    		//capabilities.setCapability("xcodeSigningId", "iPhone Developer");
+    	} 
+    	
+    	capabilities.setCapability("platformName", platformName);
+        capabilities.setCapability("deviceName", deviceName);
+        capabilities.setCapability("automationName", "XCUITest");
+        capabilities.setCapability("udid", udid);
+        
+        /* Minimum Capabilities you need to define
+        XCUITest 
+        platformName
+        deviceName
+        app
+        
+        platformVersion
+        */
+
+        
+        driver = new RemoteWebDriver( new URL( "http://127.0.0.1:4723/wd/hub" ), capabilities );
+
+        values = new ArrayList<Integer>(); 
+    }
+
+    @After  
+    public void tearDown() throws Exception {  
+    	//driver.quit();  
+    }  
+
+
+    @Test  
+    public void testScriptGoesHere() throws Exception {  
+
+        System.out.println("Test Output From Within the test");
+        System.out.println("Here goes your test script");
+    
+    }
+}

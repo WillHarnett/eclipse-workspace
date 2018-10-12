@@ -1,0 +1,76 @@
+package com.babbelapps.babbleapps_mobileautomation;
+
+import java.awt.GridLayout;
+
+import javax.swing.*;
+
+public class CapabilitiesPrompt {
+	public boolean capabilitiesPrompt() {
+		
+		boolean carryOutTests = true;
+		String udid = "";
+		String udid = "";
+		String udid = "";
+		String udid = "";
+		String udid = "";
+		String udid = "";
+		String udid = "";
+		String udid = "";
+		
+        JCheckBox emulatorCheckBox = new JCheckBox("Emulator", true);  
+        JCheckBox connectedDeviceCheckBox = new JCheckBox("Connceted Device");
+        JCheckBox useDefaultsCheckBox = new JCheckBox("Use Default Values", true);  
+		
+        String[] platformTypes = {"iOS", "Android"};
+        JComboBox platformTypeCombo = new JComboBox(platformTypes);
+        platformTypeCombo.setSelectedItem("iOS");
+        
+        JTextField deviceNameTextField = new JTextField("1234.56");
+        JTextField field2 = new JTextField("9876.54");
+        JPanel panel = new JPanel(new GridLayout(0, 2));
+        
+        panel.add(emulatorCheckBox);
+        panel.add(connectedDeviceCheckBox);
+        panel.add(useDefaultsCheckBox);
+        
+        panel.add(platformTypeCombo);
+        panel.add(new JLabel("Device Name"));
+        panel.add(deviceNameTextField);
+        panel.add(new JLabel("Field 2:"));
+        panel.add(field2);
+        
+        field2.setEnabled( false );
+        
+        //Use Emulator
+        //Use Connected Device
+        //Use defaults
+        
+        capabilities.setCapability("automationName", "XCUITest"); //Required
+        capabilities.setCapability("udid", udid); 
+        
+        capabilities.setCapability("app", "/Users/will/Library/Developer/Xcode/DerivedData/my-recipes-crtvqzctkhijyjasxblostthzsjw/Build/Products/Release-iphonesimulator/my-recipes.app"); //Required
+        deviceName = "iPhone SE";
+        udid = "F3B8EAE6-33D7-4850-93C5-7AC240949619";
+	}
+	else {
+		udid = "4958ddfbc1831b6cd046819a90890badf6716777";
+		deviceName = "Will’s iPhone";
+		capabilities.setCapability("bundleId", bundleId);
+		
+		//capabilities.setCapability("xcodeOrgId", "<Team ID>"); //Required
+		//capabilities.setCapability("xcodeSigningId", "iPhone Developer");
+        
+        int result = JOptionPane.showConfirmDialog(null, panel, "Test",
+            JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if (result == JOptionPane.OK_OPTION) {
+            System.out.println(combo.getSelectedItem()
+                + " " + field1.getText()
+                + " " + field2.getText());
+        } else {
+        	carryOutTests = false;
+            System.out.println("Cancelled");
+        }
+	    
+        return carryOutTests;
+	}
+}

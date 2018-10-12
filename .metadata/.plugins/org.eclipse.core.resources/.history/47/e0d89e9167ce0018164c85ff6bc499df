@@ -1,0 +1,15 @@
+package com.babbelapps.babbleapps_mobileautomation;
+
+import org.junit.Test;
+import io.restassured.RestAssured.*
+import io.restassured.matcher.RestAssuredMatchers.*
+import org.hamcrest.Matchers.*
+
+
+public class ApiTesting {
+	
+	@Test
+	public void runApiTests() {
+	         given().when().get("http://www.google.com").then().statusCode(200);
+	}
+}

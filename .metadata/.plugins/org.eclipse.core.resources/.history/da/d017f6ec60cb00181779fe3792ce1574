@@ -1,0 +1,14 @@
+package com.babbelapps.babbleapps_mobileautomation;
+
+import org.openqa.selenium.interactions.touch.TouchActions;
+
+public class AppiumBasicFunctions {
+	
+	GlobalVariables globalVariables = new GlobalVariables();
+	
+	public static void tap() {
+	    TouchActions action = new TouchActions(globalVariables.driver);
+	    action.singleTap(element);
+	    action.perform();
+	}
+}

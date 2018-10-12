@@ -1,0 +1,17 @@
+package com.babbelapps.babbleapps_mobileautomation;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.touch.TouchActions;
+
+public class AppiumBasicFunctions {
+	
+	GlobalVariables globalVariables = new GlobalVariables();
+	
+	public void tap(WebElement element) {
+		//MobileElement elementsOne = (MobileElement) globalVariables.driver.findElementsByAccessibilityId("SomeAccessibilityID");
+		//List<MobileElement> elementsTwo = (MobileElement) globalVariables.driver.findElementsByClassName("SomeClassName");
+		
+		globalVariables.action.singleTap(element);
+		globalVariables.action.perform();
+	}
+}

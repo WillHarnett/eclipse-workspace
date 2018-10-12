@@ -1,0 +1,15 @@
+package com.babbelapps.babbleapps_mobileautomation;
+
+import javax.swing.*;
+
+public class CapabilitiesPrompt {
+	public void capabilitiesPrompt() {
+		JFrame f = new JFrame("Button Example");
+		JButton b = new JButton("Click Here");
+		b.setBounds(50, 100, 95, 30);
+		f.add(b);
+		f.setSize(400, 400);
+		f.setLayout(null);
+		f.setVisible(true);
+	}
+}

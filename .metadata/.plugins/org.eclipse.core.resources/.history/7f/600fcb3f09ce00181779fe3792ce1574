@@ -1,0 +1,14 @@
+package com.babbelapps.babbleapps_mobileautomation;
+
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.touch.TouchActions;
+
+public class GlobalVariables {
+    public WebDriver driver;  
+
+    public List<Integer> values; 
+    
+    public TouchActions action;
+}
