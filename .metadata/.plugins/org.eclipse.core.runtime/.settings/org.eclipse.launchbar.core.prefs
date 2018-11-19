@@ -1,7 +1,12 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=macosx
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:babbleapps-mobileautomation,org.eclipse.launchbar.core.descriptorType.default\:ApiTesting,org.eclipse.launchbar.core.descriptorType.default\:AppiumiOSTest
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:babbleapps-mobileautomation,org.eclipse.launchbar.core.descriptorType.default\:AppiumiOSTest.tearDown,org.eclipse.launchbar.core.descriptorType.default\:ApiTesting,org.eclipse.launchbar.core.descriptorType.default\:RunAutomation,org.eclipse.launchbar.core.descriptorType.default\:AppiumiOSTest,org.eclipse.launchbar.core.descriptorType.default\:TestCases,org.eclipse.launchbar.core.descriptorType.default\:CrunchifyRESTJerseyExample,org.eclipse.launchbar.core.descriptorType.default\:Tomcat v8.5 Server at localhost,org.eclipse.launchbar.core.descriptorType.default\:RunApiTests,org.eclipse.launchbar.core.descriptorType.default\:RunApiTests (1),org.eclipse.launchbar.core.descriptorType.default\:SheetsQuickstart,org.eclipse.launchbar.core.descriptorType.default\:RunAutomation (1),org.eclipse.launchbar.core.descriptorType.default\:ReportTest
 eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:ApiTesting/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:AppiumiOSTest/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:AppiumiOSTest/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:RunApiTests\ (1)/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:RunApiTests\ (1)/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:RunAutomation\ (1)/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:TestCases/activeLaunchMode=run

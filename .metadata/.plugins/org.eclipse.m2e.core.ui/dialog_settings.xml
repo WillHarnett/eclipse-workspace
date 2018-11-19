@@ -22,6 +22,14 @@
 	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
 	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
 	</section>
 	<section name="MavenProjectWizardArchetypePage">
 		<item value="All Catalogs" key="catalog"/>
@@ -48,12 +56,16 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.babbelapps.appAutomationTesting"/>
+			<item value="com.babbelapps.ApiTesting"/>
 			<item value="com.babbelapps.babbleapps_mobileautomation"/>
 		</list>
 		<list key="groupId">
 			<item value="com.babbelapps"/>
 		</list>
 		<list key="artifactId">
+			<item value="appAutomationTesting"/>
+			<item value="ApiTesting"/>
 			<item value="babbleapps-mobileautomation"/>
 		</list>
 		<list key="projectNameTemplate">
